@@ -18,10 +18,16 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
   <script>
-    function order() {
+
+    $(document).ready(function(){
+      listing();
+    });
+    
+    function listing() {
       // let userNm = $('#userName').val();
       // let userAddr = $('#userAddress').val();
       // let userPhone = $('#userPhone').val();
+
 
       let orderListUrl = 'http://spartacodingclub.shop/order';
       // $('#orderList').empty()
