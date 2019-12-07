@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+  <!-- Webpage Title -->
+  <title>untitled2</title>
+
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <!-- JS -->   
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+  <script>
+    function order() {
+      // let userNm = $('#userName').val();
+      // let userAddr = $('#userAddress').val();
+      // let userPhone = $('#userPhone').val();
+
+      let orderListUrl = 'http://spartacodingclub.shop/order';
+      // $('#orderList').empty()
+
+
+      $.ajax({
+        type: "GET",
+        url: orderListUrl ,
+        data: {},
+        success: function(response){
+          console.log(response)
+          // totalRes  = response['totalResults']
+          // alert(totalRes)
+
+          for (let j=0; j<response['orders'].length; j++){
+            console.log(response[j])
+            let userName = response['orders'][j]['name']
+            let orderCnt = response['orders'][j]['count']
+            let userAddr = response['orders'][j]['address']
+            let userPhone = response['orders'][j]['phone']
+
+            let temp_html = '<tr>\
+            <th scope="row">'+userName+'</th>\
+            <td>Mark</td>\
+            <td>'+userAddr+'</td>\
+            <td>'+userPhone+'</td>\
+          </tr>'
+            $('#orderTableList').append(temp_html)
+          }
+        }
+      })
+    }
+  </script>
+
+  <!-- 구글폰트 -->
+  <link href="https://fonts.googleapis.com/css?family=Stylish&display=swap" rel="stylesheet">
+
+  <!-- style -->
+  <style type="text/css">
+    * {
+      font-family: 'Stylish', sans-serif;
+    }
+    .wrap {
+      width: 900px;
+      margin: auto;
+    }
+    .comment {
+      color: blue;
+      font-weight: bold;
+    }
+    /*div { text-align: center; } */
+
+
+
+  </style>
+
+</head>
+<body>
+  <div style="margin:30px 450px 15px; padding:50px;"class="wrap">   
+    <img src="http://image.auction.co.kr/itemimage/14/e5/8c/14e58c4266.jpg" width ="500" >
+    <div width ="500" >
+      <br>
+      <span style="font-size:3em; color:navy;">
+        커피잔 사세용
+      </span>
+      <span style="font-size:1.5em; ">
+        가격: 130,000원/세트
+      </span>
+    </div>
+
+    <div width ="500" >
+      추운 날씨엔 따뜻한 커피가 제일이죠~~ 예쁜 커피잔과 함꼐 하세요~~ 날씨 너무 추워요~~ 감기조심하세요~~
+    </div>
+
+    <br>
+    <div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">주문자 이름</span>
+        </div>
+        <input type="text" class="form-control" id="userName" aria-label="userName" aria-describedby="basic-addon1">
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">수량</span>
+        </div>
+        <select class="custom-select" id="inputGroupSelect03" aria-label="Example select with button addon">
+          <option selected>-- 수량을 선택하세요 --</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">주소</span>
+        </div>
+        <input type="text" class="form-control" id="userAddress" aria-label="userAddress" aria-describedby="basic-addon1">
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">전화번호</span>
+        </div>
+        <input type="text" class="form-control" id="userPhone" aria-label="userPhone" aria-describedby="basic-addon1">
+      </div>
+      <br>
+      <br>
+      <button onclick="order()" type="button" class="btn btn-primary">주문하기</button>
+    </div>
+
+    <br>
+    <br>
+    <br>
+
+    <div>
+      <table class="table table-striped"  >
+        <thead>
+          <tr>
+            <th scope="col">이름</th>
+            <th scope="col">수량</th>
+            <th scope="col">주소</th>
+            <th scope="col">주문번호</th>
+          </tr>
+        </thead>
+        <tbody id="orderTableList">
+        </tbody>
+      </table>
+    </div>  
+
+
+
+</body>
+</html>
