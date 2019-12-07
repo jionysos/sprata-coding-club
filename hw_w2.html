@@ -51,7 +51,7 @@
 
             let temp_html = '<tr>\
             <th scope="row">'+userName+'</th>\
-            <td>Mark</td>\
+            <td>'+orderCnt+'</td>\
             <td>'+userAddr+'</td>\
             <td>'+userPhone+'</td>\
           </tr>'
@@ -114,7 +114,7 @@
         <div class="input-group-prepend">
           <span class="input-group-text" id="basic-addon1">수량</span>
         </div>
-        <select class="custom-select" id="inputGroupSelect03" aria-label="Example select with button addon">
+        <select id = "orderCnt"class="custom-select" id="inputGroupSelect03" aria-label="Example select with button addon">
           <option selected>-- 수량을 선택하세요 --</option>
           <option value="1">1</option>
           <option value="2">2</option>
