@@ -70,14 +70,23 @@
     * {
       font-family: 'Stylish', sans-serif;
     }
+    /*클래스이름이 wrap인 애들의 style을 다고정해주는거임*/
     .wrap {
-      width: 900px;
+      width: 600px;
+      padding: 20px;
       margin: auto;
+      /*position:absolute;*/
     }
     .comment {
       color: blue;
       font-weight: bold;
     }
+/*
+    .div {
+      position : absolute;
+      margin :auto;
+      width :1px;
+    }*/
     /*div { text-align: center; } */
 
 
@@ -86,9 +95,9 @@
 
 </head>
 <body>
-  <div style="margin:30px 450px 15px; padding:50px;"class="wrap">   
-    <img src="http://image.auction.co.kr/itemimage/14/e5/8c/14e58c4266.jpg" width ="500" >
-    <div width ="500" >
+  <div class="wrap">   
+    <img src="http://image.auction.co.kr/itemimage/14/e5/8c/14e58c4266.jpg" width ="600" >
+    <div>
       <br>
       <span style="font-size:3em; color:navy;">
         커피잔 사세용
@@ -98,13 +107,13 @@
       </span>
     </div>
 
-    <div width ="500" >
-      추운 날씨엔 따뜻한 커피가 제일이죠~~ 예쁜 커피잔과 함꼐 하세요~~ 날씨 너무 추워요~~ 감기조심하세요~~
+    <div>
+      추운 날씨엔 따뜻한 커피가 제일이죠~~ 예쁜 커피잔과 함꼐 하세요~~ 날씨 너무 추워요~~ 감기조심하세요~~ggggggggggggg
     </div>
 
     <br>
     <div>
-      <div class="input-group mb-3">
+      <div class="input-group mb-3" >
         <div class="input-group-prepend">
           <span class="input-group-text" id="basic-addon1">주문자 이름</span>
         </div>
